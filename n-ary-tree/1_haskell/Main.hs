@@ -17,12 +17,18 @@ numTreeEntries (Node _ trees) = 1 + (sum $ map numTreeEntries trees)
 updateTreeValue :: (Eq a) => a -> a -> Tree a -> Tree a
 updateTreeValue _ _ Empty = Empty
 updateTreeValue a b (Leaf z)
-  | a == z = Leaf b
+  | a == z    = Leaf b
   | otherwise = Leaf z
 updateTreeValue a b (Node z ts)
-  | a == z = Node b ts
+  | a == z    = Node b ts
   | otherwise = Node z (map (updateTreeValue a b) ts)
 
+treeHasValue :: (Eq a) => a -> Tree a -> Bool
+treeHasValue _ Empty = False
+treeHasValue a (Leaf z) = a == z
+treeHasValue a (Node z ts)
+  | a == z    = True
+  | otherwise = 
 
 main :: IO ()
 main = print "Yeah, the output isn't gonna help much I'm afraid, use the code."
