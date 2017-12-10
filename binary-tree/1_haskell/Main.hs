@@ -1,4 +1,4 @@
--- | A simple weighted binary tree.
+-- |A simple weighted binary tree.
 
 module Main where
 
